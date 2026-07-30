@@ -1,0 +1,21 @@
+# Whitelist approach: ignore everything at repo root, then re-include only
+# the files that make up the tooling / static site / docs. Everything else
+# in this working directory (source .txt lists, videos, images, DB, exe,
+# unrelated scripts, __pycache__) is user-local and stays out of git.
+
+/*
+
+# Allow these files/dirs specifically.
+!.gitignore
+!README.md
+!.thumb_cache.json
+!LinksApp.spec
+!audit_links.py
+!build_links_page.py
+!build_static.py
+!fetch_thumbs.py
+!move_to_bottom.py
+!ph_solver.py
+!server.py
+!docs/
+!site/
