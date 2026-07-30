@@ -13,7 +13,7 @@
            ↓
 ┌──────────────────────────┐     ┌──────────────────────────────────────┐
 │  build_links_page.py     │────→│  links.html   (dynamic — server)     │
-│  build_static.py         │────→│  site/index.html  (static — GH Pages)│
+│  build_static.py         │────→│  index.html  (static — GH Pages)│
 └────────┬─────────────────┘     └──────────────────────────────────────┘
          │                                     ↑
          │  classify() → (src_type, embed_url) │
@@ -63,7 +63,7 @@
 
 **Rendering**
 - `build_links_page.py` emits `links.html` for the server-backed workflow: cards read/write overrides via `fetch()` calls to `/api`.
-- `build_static.py` emits `site/index.html` for the static workflow: cards read/write overrides via `localStorage`. Current DB state is baked in as the initial default set so the deployed page reflects the curator's latest edits.
+- `build_static.py` emits `index.html` for the static workflow: cards read/write overrides via `localStorage`. Current DB state is baked in as the initial default set so the deployed page reflects the curator's latest edits.
 
 **Persistence**
 - Server mode: SQLite at `overrides.db`, one row per URL that has any user edit.
@@ -72,7 +72,7 @@
 
 ## Runtime layers
 
-### Frontend (`links.html` / `site/index.html`)
+### Frontend (`links.html` / `index.html`)
 
 Vanilla HTML/CSS/JS. Everything is inlined into a single file — no external scripts, no build step for the frontend. The only network requests at page-load time are:
 

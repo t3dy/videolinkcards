@@ -21,7 +21,8 @@ import sys
 from pathlib import Path
 
 HERE = Path(__file__).parent
-SITE_DIR = HERE / 'site'
+# GitHub Pages serves from repo root, so the built file lives at index.html.
+STATIC_HTML = HERE / 'index.html'
 
 sys.path.insert(0, str(HERE))
 from build_links_page import (
@@ -1033,10 +1034,8 @@ def main():
 </html>
 '''
 
-    SITE_DIR.mkdir(exist_ok=True)
-    out = SITE_DIR / 'index.html'
-    out.write_text(page, encoding='utf-8')
-    print(f'Wrote {out} ({len(combined)} cards, {len(default_overrides)} baked overrides)')
+    STATIC_HTML.write_text(page, encoding='utf-8')
+    print(f'Wrote {STATIC_HTML} ({len(combined)} cards, {len(default_overrides)} baked overrides)')
 
 
 if __name__ == '__main__':

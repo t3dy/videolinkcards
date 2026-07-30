@@ -19,7 +19,7 @@ Uses `.thumb_cache.json` for baked-in thumbnails but does not fetch anything. Ru
 Same parse + classify + tag pipeline as `build_links_page.py`, plus:
 
 - Reads the current `overrides.db` and bakes every user edit into the emitted HTML as the initial default state.
-- Emits `site/index.html` — a fully self-contained page (no server, no external scripts).
+- Emits `index.html` — a fully self-contained page (no server, no external scripts).
 - Uses `localStorage` for persistence.
 
 ```
@@ -112,7 +112,7 @@ Edit a `.txt` link list, then:
 python audit_links.py               # see what changed
 python build_links_page.py          # regenerate links.html
 python fetch_thumbs.py              # grab any new thumbnails
-python build_static.py              # regenerate site/index.html for deployment
+python build_static.py              # regenerate index.html for deployment
 git add -A && git commit -m "..."   # commit the static snapshot
 git push                            # deploy via GitHub Pages
 ```

@@ -40,8 +40,7 @@ videolinkcards/
 │   ├── architecture.md    — end-to-end diagram + data flow
 │   ├── scripts.md         — every script + example invocations
 │   └── data-model.md      — DB schema, override precedence, effective values
-├── site/
-│   └── index.html         — the deployed static snapshot (also served by GitHub Pages)
+├── index.html             — the deployed static snapshot (GitHub Pages serves this from repo root)
 ├── build_links_page.py    — parses .txt sources → generates the dynamic (server-backed) HTML
 ├── build_static.py        — same, plus DB bake-in → self-contained static HTML
 ├── server.py              — Flask API + static-file server for local use
@@ -86,7 +85,7 @@ LinksApp.exe                              # double-click to launch
 ## Building the static site
 
 ```
-python build_static.py                    # writes site/index.html
+python build_static.py                    # writes index.html (static)
 ```
 
 The static build reads the current `overrides.db` and bakes every user edit (caption, tags, order, deletion, comment) into the HTML as the initial default state. Visitors' further edits go to their own browser's `localStorage`; nothing round-trips back to your DB.
